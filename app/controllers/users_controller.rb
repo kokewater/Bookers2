@@ -15,10 +15,9 @@ class UsersController < ApplicationController
       @book.user_id = current_user.id
       @book = Book.new(book_params)
     if @book.save
-    flash[:success] = "You have creatad user successfully."
+    flash[:notice] = "You have creatad user successfully."
       redirect_to @book
     else
-    flash[:danger] = @book.errors.full_messages
       @books = Book.all
       render 'index'
     end
