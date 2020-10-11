@@ -10,6 +10,32 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-fixed-top navbar-static-top navbar-inverse">
+      <div class="container">
+        <div class"navbar-header">
+          <div class=class="collapse navbar-collapse" id="navbarEexample">
+            <span class="navbar-text navbar-left">Bookers</span>
+            <ul class="nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
+                <li><%= link_to "Home", user_path(current_user.id), class: "glyphicon glyphicon-home" %></li>
+                <li><%= link_to "Users", users_path, class: "users glyphicon glyphicon-user" %></li>
+                <li><%= link_to "Books", books_path, class: "books glyphicon glyphicon-book" %></li>
+                <li><%= link_to "logout", destroy_user_session_path, class: "logout glyphicon glyphicon-log-out", method: :delete %></li>
+              <% else %>
+                <li><%= link_to "Home", "/", class: "home glyphicon glyphicon-home" %></li>
+                <li><%= link_to "About", "/home/about", class: "about glyphicon glyphicon-link" %></li>
+                <li><%= link_to "sign up", new_user_registration_path, class: "sign_up glyphicon glyphicon-edit" %></li>
+                <li><%= link_to "login", new_user_session_path, class: "sign_in glyphicon glyphicon-log-in" %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <%= yield %>
+      <p class="pull-right">CopyRight Infratop.inc</p>
+    </div>
+    
   </body>
 </html>
