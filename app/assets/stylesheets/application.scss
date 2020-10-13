@@ -27,6 +27,20 @@ body {
   padding-top: 70px;
 }
 
+.navbar-custom .navbar-left {
+  color: white;
+  font-size : 20px;
+}
+
 .field, .actions {
   margin-bottom: 10px;
+}
+
+.error_massage {
+  color: red;
+}
+
+a:hover {
+  background-color: #000;
+  color: #337ab7;
 }
